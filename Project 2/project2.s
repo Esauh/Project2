@@ -43,4 +43,11 @@ li $v0, 1
 addi $a0, $s3, 0
 syscall
 
+j exit
+
+change:
+li $t0, 0 #index
+li $v0, 0 #stores the sum
+loadchar:
+lb $t1, 0($a1) #pointer to the current char been analyzed
 
