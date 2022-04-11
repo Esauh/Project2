@@ -17,4 +17,10 @@ jal length		# saves the return address of the instruction and jumps to specific 
 addi $s1, $v0, 0
 addi $s2, $v1, 0
 
+beqz $s1, invalid # if length of string equals 0 then exit program
+move $a0, $s1 #end of the string will be used as a parameter
+move $a1, $s0 #start of string will be used as a parameter
+jal leading_removal #jumps to leading_removal function which will remove leading whitespaces
+
+move $s0, $v0 #puts the first non-whitespace char into $s0 as an address
 
