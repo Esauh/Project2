@@ -51,3 +51,9 @@ li $v0, 0 #stores the sum
 loadchar:
 lb $t1, 0($a1) #pointer to the current char been analyzed
 
+range09:
+	li $t2, '0'
+	li $t3, '9'
+	blt $t1, $t2, invalid # sees if the char is less than 0 and if it is go to invalid function
+	bgt $t1, $t3, rangeAS # sees if the char is more than 9 and if it is go to the rangeAS function
+
