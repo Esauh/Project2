@@ -25,7 +25,17 @@ move $s0, $v0 #puts the first non-whitespace char into $s0 as an address
 
 beqz $s1, invalid #if the length of the string is 0 go to invalid function which will end the program
 
-	move $a0, $s2 #will be used as parameter as a pointer for ending_removal function
-	addi $a1, $s1, 0 #will be used as parameter as the legnth for the ending_removal function
-	jal ending_removal #jump to the ending_removal function and return value
-	addi $s2, $v0, 0
+move $a0, $s2 #will be used as parameter as a pointer for ending_removal function
+addi $a1, $s1, 0 #will be used as parameter as the legnth for the ending_removal function
+jal ending_removal #jump to the ending_removal function and return value
+addi $s2, $v0, 0
+
+beqz $s1, invalid			#if the length of $s1 (input) is 0 go to invalid and end program
+bgt $s1, 4, invalid			#if the length of $s1 (input) is greater than 4 go to invalid and end program
+
+addi $a0, $s1, 0			#throw in the length of string to a function used to intialize the index and register to store our sum
+move $a1, $s0				#the start of the string has to be be changed with the function mentioned above
+li $a2, 29				    #the exponent base is loaded since N = 29 ours is 29
+
+
+
