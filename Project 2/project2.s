@@ -2,7 +2,6 @@
 #beta = 's'
 .data
 input_space: .space 1001
-userinput: .asciiz "Enter Input: "
 error: .asciiz "Not Recognized"
 .text
 
@@ -24,3 +23,9 @@ jal leading_removal #jumps to leading_removal function which will remove leading
 
 move $s0, $v0 #puts the first non-whitespace char into $s0 as an address
 
+beqz $s1, invalid #if the length of the string is 0 go to invalid function which will end the program
+
+	move $a0, $s2 #will be used as parameter as a pointer for ending_removal function
+	addi $a1, $s1, 0 #will be used as parameter as the legnth for the ending_removal function
+	jal ending_removal #jump to the ending_removal function and return value
+	addi $s2, $v0, 0
