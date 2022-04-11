@@ -50,10 +50,17 @@ li $t0, 0 #index
 li $v0, 0 #stores the sum
 loadchar:
 lb $t1, 0($a1) #pointer to the current char been analyzed
+beq $t0, $a0, valid #needed to make sure that the current char index is valid
 
 range09:
-	li $t2, '0'
-	li $t3, '9'
-	blt $t1, $t2, invalid # sees if the char is less than 0 and if it is go to invalid function
-	bgt $t1, $t3, rangeAS # sees if the char is more than 9 and if it is go to the rangeAS function
+li $t2, '0'
+li $t3, '9'
+blt $t1, $t2, invalid # sees if the char is less than 0 and if it is go to invalid function
+bgt $t1, $t3, rangeAS # sees if the char is more than 9 and if it is go to the rangeAS function
+
+firstloop:
+beq $t4, 1, firstelse
+mul $t5, $t5, $a2
+addi $t4, $t4, -1
+j firstloop
 
