@@ -69,3 +69,9 @@ mul $t5, $t5, $t1 #convert the char
 add $v0, $v0, $t5 #add conversion to the overall sum
 addi $a1, $a1, 1  #increment pointer
 addi $t0, $t0, 1  #increment loop index
+
+rangeAS:
+li $t2, 'A'
+li $t3, 'S'
+blt $t1, $t2, invalid
+bgt $t1, $t3, rangeas
