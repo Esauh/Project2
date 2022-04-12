@@ -135,3 +135,9 @@ j noneloop
 return:
 move $v0, $t0
 addi $v0, $v0, -1 #minus excess
+move $v1, $a0 #pointer to last char
+addi $v1, $v1, -2
+jr $ra #jumps to address $ra
+
+leading_removal: #gets pointer for 1st non-spaced char and the length of the string without spaces
+li $t1, 0 #index for coming loop
