@@ -48,6 +48,7 @@ j exit
 change:
 li $t0, 0 #index
 li $v0, 0 #stores the sum
+
 loadchar:
 lb $t1, 0($a1) #pointer to the current char been analyzed
 beq $t0, $a0, valid #needed to make sure that the current char index is valid
@@ -81,11 +82,13 @@ bgt $t1, $t3, rangeas
 addi $t1, $t1, -55
 sub $t4, $a0, $t0 #initialize index for exponent loop
 li $t5, 1
+
 secondloop:
 beq $t4, 1, secondelse
 mul $t5, $t5, $a2
 addi $t4, $t4, -1
 j secondloop
+
 secondelse:
 mul $t5, $t5, $t1
 add $v0, $v0, $t5
@@ -100,16 +103,19 @@ bgt $t1, $t3, invalid
 addi $t1, $t1, -87
 sub $t4, $a0, $t0
 li $t5, 1
+
 thirdloop:
 beq $t4, 1, thirdelse
 mul $t5, $t5, $a2
 addi $t4, $t4, -1
 j thirdloop
+
 thirdelse:
 mul $t5, $t5, $t1 #convert the char
 add $v0, $v0, $t5 #add conversion to the overall sum
 addi $a1, $a1, 1  #increment pointer
 addi $t0, $t0, 1  #increment loop index
+
 valid:
 jr $ra #jumps to address in $ra
 
@@ -132,6 +138,7 @@ beqz $t1, return
 addi $a0, $a0, 1
 addi $t0, $t0, 1 #increment the loop counter
 j noneloop
+
 return:
 move $v0, $t0
 addi $v0, $v0, -1 #minus excess
@@ -166,4 +173,9 @@ lb $t0, 0($a0)
 beq $t0, $t2, decrement
 beq $t0, $t3, decrement
 j lastcharreturn
+
+decrement:
+addi $a0, $a0, -1 #minus string index pointer by 1
+addi $t1, $t1, 1 #increment the loop counter by 1
+j endpointerloop
 
