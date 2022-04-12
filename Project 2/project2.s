@@ -78,5 +78,7 @@ li $t2, 'A'
 li $t3, 'S'
 blt $t1, $t2, invalid
 bgt $t1, $t3, rangeas
-
+addi $t1, $t1, -55
+sub $t4, $a0, $t0			    #initialize index for exponent loop
+li $t5, 1
 
