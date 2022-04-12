@@ -116,3 +116,9 @@ jr $ra #jumps to address in $ra
 invalid:
 la $a0, error
 li $v0, 4
+syscall
+j exit
+
+exit:
+li $v0, 10
+syscall
