@@ -79,7 +79,7 @@ li $t3, 'S'
 blt $t1, $t2, invalid
 bgt $t1, $t3, rangeas
 addi $t1, $t1, -55
-sub $t4, $a0, $t0			    #initialize index for exponent loop
+sub $t4, $a0, $t0 #initialize index for exponent loop
 li $t5, 1
 secondloop:
 beq $t4, 1, secondelse
@@ -91,3 +91,9 @@ mul $t5, $t5, $t1
 add $v0, $v0, $t5
 addi $a1, $a1, 1
 addi $t0, $t0, 1
+
+rangeas: #checks if char is a through s
+li $t2, 'a'
+li $t3, 's'
+blt $t1, $t2, invalid
+bgt $t1, $t3, invalid
