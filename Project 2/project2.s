@@ -57,6 +57,9 @@ li $t2, '0'
 li $t3, '9'
 blt $t1, $t2, invalid # sees if the char is less than 0 and if it is go to invalid function
 bgt $t1, $t3, rangeAS # sees if the char is more than 9 and if it is go to the rangeAS function
+sub $t1, $t1, $t2
+sub $t4, $a0, $t0 #initialize index for exponent loop
+li $t5, 1
 
 firstloop:
 beq $t4, 1, firstelse
@@ -75,3 +78,5 @@ li $t2, 'A'
 li $t3, 'S'
 blt $t1, $t2, invalid
 bgt $t1, $t3, rangeas
+
+
