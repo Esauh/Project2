@@ -86,3 +86,8 @@ beq $t4, 1, secondelse
 mul $t5, $t5, $a2
 addi $t4, $t4, -1
 j secondloop
+secondelse:
+mul $t5, $t5, $t1
+add $v0, $v0, $t5
+addi $a1, $a1, 1
+addi $t0, $t0, 1
