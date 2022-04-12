@@ -105,3 +105,8 @@ beq $t4, 1, thirdelse
 mul $t5, $t5, $a2
 addi $t4, $t4, -1
 j thirdloop
+thirdelse:
+mul $t5, $t5, $t1 #convert the char
+add $v0, $v0, $t5 #add conversion to the overall sum
+addi $a1, $a1, 1  #increment pointer
+addi $t0, $t0, 1  #increment loop index
