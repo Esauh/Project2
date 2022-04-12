@@ -73,6 +73,7 @@ mul $t5, $t5, $t1 #convert the char
 add $v0, $v0, $t5 #add conversion to the overall sum
 addi $a1, $a1, 1  #increment pointer
 addi $t0, $t0, 1  #increment loop index
+j loadchar
 
 rangeAS:
 li $t2, 'A'
@@ -94,6 +95,7 @@ mul $t5, $t5, $t1
 add $v0, $v0, $t5
 addi $a1, $a1, 1
 addi $t0, $t0, 1
+j loadchar
 
 rangeas: #checks if char is a through s
 li $t2, 'a'
@@ -115,6 +117,7 @@ mul $t5, $t5, $t1 #convert the char
 add $v0, $v0, $t5 #add conversion to the overall sum
 addi $a1, $a1, 1  #increment pointer
 addi $t0, $t0, 1  #increment loop index
+j loadchar
 
 valid:
 jr $ra #jumps to address in $ra
