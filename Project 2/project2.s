@@ -81,4 +81,8 @@ bgt $t1, $t3, rangeas
 addi $t1, $t1, -55
 sub $t4, $a0, $t0			    #initialize index for exponent loop
 li $t5, 1
-
+secondloop:
+beq $t4, 1, secondelse
+mul $t5, $t5, $a2
+addi $t4, $t4, -1
+j secondloop
