@@ -97,3 +97,6 @@ li $t2, 'a'
 li $t3, 's'
 blt $t1, $t2, invalid
 bgt $t1, $t3, invalid
+addi $t1, $t1, -87
+sub $t4, $a0, $t0
+li $t5, 1
