@@ -149,3 +149,8 @@ lb $t0, 0($a1) #pointer to start of string in $t0
 beq $t0, $t2, increment
 beq $t0, $t3, increment
 beq $t0, $a0, invalid
+
+increment:
+addi $a1, $a1, 1 #add to string pointer
+addi $t1, $t1, 1 #add to the loop counter
+j pointerloop # go back to pointer loop and cotinue
