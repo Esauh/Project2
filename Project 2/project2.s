@@ -141,3 +141,5 @@ jr $ra #jumps to address $ra
 
 leading_removal: #gets pointer for 1st non-spaced char and the length of the string without spaces
 li $t1, 0 #index for coming loop
+li $t2, 32 # decimal value for the space char
+li $t3, 9 #decimal value for the tab value
