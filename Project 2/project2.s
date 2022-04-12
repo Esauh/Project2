@@ -100,3 +100,8 @@ bgt $t1, $t3, invalid
 addi $t1, $t1, -87
 sub $t4, $a0, $t0
 li $t5, 1
+thirdloop:
+beq $t4, 1, thirdelse
+mul $t5, $t5, $a2
+addi $t4, $t4, -1
+j thirdloop
