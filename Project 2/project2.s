@@ -130,3 +130,8 @@ noneloop: #loop function through the count
 lb $t1, 0($a0)
 beqz $t1, return
 addi $a0, $a0, 1
+addi $t0, $t0, 1 #increment the loop counter
+j noneloop
+return:
+move $v0, $t0
+addi $v0, $v0, -1 #minus excess
