@@ -143,3 +143,9 @@ leading_removal: #gets pointer for 1st non-spaced char and the length of the str
 li $t1, 0 #index for coming loop
 li $t2, 32 # decimal value for the space char
 li $t3, 9 #decimal value for the tab value
+
+pointerloop:
+lb $t0, 0($a1) #pointer to start of string in $t0
+beq $t0, $t2, increment
+beq $t0, $t3, increment
+beq $t0, $a0, invalid
