@@ -154,3 +154,16 @@ increment:
 addi $a1, $a1, 1 #add to string pointer
 addi $t1, $t1, 1 #add to the loop counter
 j pointerloop # go back to pointer loop and cotinue
+
+ending_removal:
+li $t1, 0 #ending pointer loop counter
+li $t2, 32 #space decimal value
+li $t3, 9 #tab decimal value
+
+endpointerloop:
+beq $t1, $a1, lastcharreturn
+lb $t0, 0($a0)
+beq $t0, $t2, decrement
+beq $t0, $t3, decrement
+j lastcharreturn
+
