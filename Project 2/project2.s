@@ -179,3 +179,7 @@ addi $a0, $a0, -1 #minus string index pointer by 1
 addi $t1, $t1, 1 #increment the loop counter by 1
 j endpointerloop
 
+lastcharreturn:
+move $v0, $a0
+sub $s1, $s1, $t1
+jr $ra
