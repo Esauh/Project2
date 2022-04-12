@@ -122,3 +122,11 @@ j exit
 exit:
 li $v0, 10
 syscall
+
+length:
+li $t0, 0 #initialize the count as 0
+
+noneloop: #loop function through the count
+lb $t1, 0($a0)
+beqz $t1, return
+addi $a0, $a0, 1
